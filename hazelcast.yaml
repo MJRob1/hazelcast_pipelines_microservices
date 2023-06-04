@@ -1,0 +1,15 @@
+hazelcast:
+  map:
+    orders-map:
+      event-journal: 
+        enabled: true
+        capacity: 3600000
+    orders-with-customers-map:
+      event-journal:
+        enabled: true
+        capacity: 3600000
+
+  jet: 
+    enabled: true
+    resource-upload-enabled: true
+
