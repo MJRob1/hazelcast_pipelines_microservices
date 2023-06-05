@@ -2,10 +2,11 @@
 
 Project consists of Hazelcast cluster, a client and two pipeline jobs.  
 
-The client create SQL mappings for IMaps, loads customer data into customer-map, and sends (currently hardcoded to 9) fake orders (orderId, customerId, amount) 
-into orders-map.  The act of putting orders into the orders map initiates a microservice (pipeline-one) to enrich that order with the csutomer information
-and in turn put that updated information into the orders-with-customers-map. The act of putting entries
-into this map in turn initiates a second microservice (pipeline-two job).
+The client create SQL mappings for IMaps, loads customer data into customer-map, and sends (currently hardcoded to only 9!) 
+fake orders (orderId, customerId, amount) into orders-map.  The act of putting orders into the orders map initiates a 
+microservice (pipeline-one) to enrich that order with the customer information and in turn put that updated information 
+into the orders-with-customers-map. The act of putting entries into this map in turn initiates a second microservice 
+(pipeline-two job).
 
 Pipeline-one job is a microservice that reads from orders-map journal and enriches the orders with information from the
 customer-map and outputs this information to orders-with-customers-map.  (Uses a GenericRecord with correct order 
