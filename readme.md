@@ -37,7 +37,7 @@ mvn package
 To submit job:
 ```shell
 cd pipeline-one
-hz-cli submit --class hazelcast.microservices.hazelcast.microservices.pipelineone.PipelineOne target/pipeline-one-1.0-SNAPSHOT.jar
+hz-cli submit --class hazelcast.microservices.pipelineone.PipelineOne target/pipeline-one-1.0-SNAPSHOT.jar
 ```
 
 ### pipeline-two:
@@ -50,12 +50,16 @@ mvn package
 To submit job:
 ```shell
 cd pipeline-one
-hz-cli submit --class hazelcast.microservices.hazelcast.microservices.pipelinetwo.PipelineTwo target/pipeline-two-1.0-SNAPSHOT.jar
+hz-cli submit --class hazelcast.microservices.pipelinetwo.PipelineTwo target/pipeline-two-1.0-SNAPSHOT.jar
 ```
 
 
 ### Run client
-Run client (in IntelliJ, right click Client and select Run). The client does the following
+
+```shell
+java -jar client/target/client-1.0-SNAPSHOT.jar
+```
+The client does the following
 - create SQL mappings for IMaps
 - loads customer data into customer-map
 - puts (currently hardcoded to 9) fake orders (orderId, customerId, amount) into orders-map  
